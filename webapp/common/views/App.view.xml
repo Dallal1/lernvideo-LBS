@@ -1,0 +1,41 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="lbs.videomanager.common.controllers.App"
+  displayBlock="true"
+  height="100%">
+  <VBox class="appShell" height="100%">
+    <Toolbar class="appHeader">
+      <core:Icon src="sap-icon://media-play" decorative="true" class="brandIcon" />
+      <HBox alignItems="Center" class="brandName">
+        <Title text="Video" level="H2" class="brandVideo" />
+        <Title text="Manager" level="H2" class="brandManager" />
+      </HBox>
+      <ToolbarSpacer />
+      <ToggleButton
+        id="menuButton"
+        icon="sap-icon://menu2"
+        tooltip="Menü öffnen"
+        type="Transparent"
+        press=".onToggleMenu" />
+    </Toolbar>
+    <HBox class="appBody" fitContainer="true" alignItems="Stretch">
+      <layoutData>
+        <FlexItemData growFactor="1" baseSize="0%" />
+      </layoutData>
+      <VBox id="navigation" visible="false" class="appNavigation">
+        <HBox alignItems="Center" class="navigationHome">
+          <core:Icon src="sap-icon://home" decorative="true" />
+          <Text text="Home" />
+        </HBox>
+      </VBox>
+      <VBox class="appContent">
+        <layoutData>
+          <FlexItemData growFactor="1" shrinkFactor="1" baseSize="0%" />
+        </layoutData>
+        <mvc:XMLView viewName="lbs.videomanager.home.views.Home" />
+      </VBox>
+    </HBox>
+  </VBox>
+</mvc:View>

@@ -1,0 +1,20 @@
+{
+  "name": "lernvideo-lbs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenUI5-Startseite für das Schulprojekt VideoManager",
+  "scripts": {
+    "start": "ui5 serve --port 8080",
+    "typecheck": "tsc --noEmit",
+    "build": "ui5 build --all"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@openui5/types": "1.148.0",
+    "@ui5/cli": "4.0.55",
+    "typescript": "6.0.3",
+    "ui5-tooling-transpile": "3.11.2"
+  }
+}

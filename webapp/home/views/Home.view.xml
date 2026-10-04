@@ -1,0 +1,28 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="lbs.videomanager.home.controllers.Home"
+  displayBlock="true">
+  <VBox class="homePage">
+    <Title text="Willkommen" level="H1" class="homeTitle" />
+    <HBox wrap="Wrap" class="homeCards">
+      <VBox class="homeCard">
+        <VBox alignItems="Center" justifyContent="Center" class="cardIllustration">
+          <core:Icon src="sap-icon://video" decorative="true" />
+        </VBox>
+        <Title text="Videos" level="H2" class="cardTitle" />
+        <Text text="Hier findest du später unsere Lernvideos." class="cardDescription" />
+        <Button text="Videos ansehen" enabled="false" type="Emphasized" class="cardPlaceholder" />
+      </VBox>
+      <VBox class="homeCard">
+        <VBox alignItems="Center" justifyContent="Center" class="cardIllustration">
+          <core:Icon src="sap-icon://group" decorative="true" />
+        </VBox>
+        <Title text="Team" level="H2" class="cardTitle" />
+        <Text text="Hier stellen wir später unser Team vor." class="cardDescription" />
+        <Button text="Über uns" enabled="false" type="Emphasized" class="cardPlaceholder" />
+      </VBox>
+    </HBox>
+  </VBox>
+</mvc:View>

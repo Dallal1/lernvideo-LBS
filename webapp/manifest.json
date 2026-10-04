@@ -1,0 +1,40 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "lbs.videomanager",
+    "type": "application",
+    "title": "VideoManager",
+    "description": "Startseite des Lernvideo-Schulprojekts",
+    "applicationVersion": {
+      "version": "0.1.0"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.148.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "lbs.videomanager.common.views.App",
+      "type": "XML",
+      "id": "app",
+      "async": true
+    },
+    "resources": {
+      "css": [
+        { "uri": "common/css/style.css" }
+      ]
+    }
+  }
+}
