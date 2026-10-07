@@ -52,18 +52,34 @@
                 id="navigation"
                 visible="false"
                 class="appNavigation">
-                <HBox
-                    alignItems="Center"
-                    class="navigationHome">
-                    <core:Icon
-                        src="sap-icon://home"
-                        decorative="true"/>
+                <ToggleButton
+                    id="homeNavigation"
+                    text="Home"
+                    icon="sap-icon://home"
+                    type="Transparent"
+                    press=".onHome"
+                    class="navigationButton"/>
 
-                    <Text text="Home" />
-                </HBox>
+                <ToggleButton
+                    id="videosNavigation"
+                    text="Videos"
+                    icon="sap-icon://media-play"
+                    type="Transparent"
+                    press=".onVideos"
+                    class="navigationButton"/>
+
+                <Button
+                    text="Team"
+                    icon="sap-icon://group"
+                    type="Transparent"
+                    enabled="false"
+                    tooltip="Team – noch nicht verfügbar"
+                    class="navigationButton"/>
             </VBox>
 
-            <VBox class="appContent">
+            <VBox
+                id="pageContent"
+                class="appContent">
                 <layoutData>
                     <FlexItemData
                         growFactor="1"
@@ -71,7 +87,6 @@
                         baseSize="0%"/>
                 </layoutData>
 
-                <mvc:XMLView viewName="lbs.videomanager.home.views.Home" />
             </VBox>
         </HBox>
     </VBox>

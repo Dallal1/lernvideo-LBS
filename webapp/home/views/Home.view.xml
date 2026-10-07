@@ -34,7 +34,7 @@
 
                 <Button
                     text="Videos ansehen"
-                    enabled="false"
+                    press=".onOpenVideos"
                     type="Emphasized"
                     class="cardPlaceholder"/>
             </VBox>

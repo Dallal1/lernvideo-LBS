@@ -55,22 +55,38 @@ body {
     background: #fff;
 }
 
-.navigationHome {
-    gap: 1.25rem;
-    padding: 1.25rem;
-    border-radius: 0.8rem;
-    background: #eaf2ff;
+.navigationButton.sapMBtn {
+    width: 100%;
+    height: 3.5rem;
+    margin-bottom: 0.25rem;
 }
 
-.navigationHome .sapUiIcon,
-.navigationHome .sapMText {
-    color: #0866ee;
-    font-size: 1.25rem;
+.navigationButton .sapMBtnInner {
+    justify-content: flex-start;
+    height: 3rem;
+    padding: 0 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #546783;
+    text-align: left;
+}
+
+.navigationButton .sapMBtnContent,
+.navigationButton .sapMBtnIcon {
+    color: inherit;
+    line-height: 3rem;
+}
+
+.navigationButton .sapMBtnInner.sapMToggleBtnPressed {
+    border: 0;
+    background: #e5f1ff;
+    color: #0874ee;
 }
 
 .appContent {
     min-width: 0;
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 .homePage {
@@ -144,7 +160,7 @@ body {
 
     .appNavigation {
         position: absolute;
-        z-index: 2;
+        z-index: 10;
         top: 0;
         bottom: 0;
         width: 15rem;

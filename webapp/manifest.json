@@ -33,8 +33,34 @@
     },
     "resources": {
       "css": [
-        { "uri": "common/css/style.css" }
+        { "uri": "common/css/style.css" },
+        { "uri": "videos/css/videos.css" }
       ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.ui.core.routing.Router",
+        "type": "View",
+        "viewType": "XML",
+        "async": true,
+        "controlId": "pageContent",
+        "controlAggregation": "items",
+        "clearControlAggregation": true
+      },
+      "routes": [
+        { "pattern": "", "name": "home", "target": "home" },
+        { "pattern": "videos", "name": "videos", "target": "videos" }
+      ],
+      "targets": {
+        "home": {
+          "id": "home",
+          "name": "lbs.videomanager.home.views.Home"
+        },
+        "videos": {
+          "id": "videos",
+          "name": "lbs.videomanager.videos.views.Videos"
+        }
+      }
     }
   }
 }

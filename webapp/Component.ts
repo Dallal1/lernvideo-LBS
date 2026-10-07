@@ -8,4 +8,9 @@ export default class Component extends UIComponent {
     manifest: "json",
     interfaces: ["sap.ui.core.IAsyncContentCreation"]
   };
+
+  public init(): void {
+    super.init();
+    this.getRouter().initialize();
+  }
 }

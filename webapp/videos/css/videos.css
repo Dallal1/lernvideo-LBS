@@ -1,0 +1,219 @@
+.videosPage {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 2rem 2.5rem 3rem;
+}
+
+.videosHeading {
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.videosTitle.sapMTitle {
+    color: #102039;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.videosSubtitle.sapMText {
+    margin-top: 0.25rem;
+    color: #75849c;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.videosPage .sapMBtnInner.sapMBtnEmphasized {
+    border-color: #0874ee;
+    background: #0874ee;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.videosPage .sapMBtn:hover .sapMBtnInner.sapMBtnEmphasized {
+    border-color: #005bc2;
+    background: #005bc2;
+}
+
+.uploadButton .sapMBtnInner {
+    min-width: 10rem;
+}
+
+.videoFilters {
+    gap: 0.75rem;
+}
+
+.videoFilters .sapMSFF,
+.videoFilters .sapMSlt {
+    border: 1px solid #d5e1ef;
+    border-radius: 0.4rem;
+    background: #fff;
+    box-shadow: none;
+}
+
+.videoDemoNote.sapMText {
+    margin: 0.75rem 0 1rem;
+    color: #65758b;
+    font-size: 0.8125rem;
+}
+
+.videoGrid.sapMFlexBox {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.videoCard {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #d5e1ef;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.videoThumbnail {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #e2eaf2;
+}
+
+.videoThumbnail > .sapMFlexItem:first-child {
+    width: 100%;
+    height: 100%;
+}
+
+.videoImage.sapMImg {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+}
+
+.videoThumbnail > .sapMFlexItem:has(.videoPlayIcon) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.videoPlayIcon.sapUiIcon {
+    width: 3.75rem;
+    height: 3.75rem;
+    border: 1px solid rgb(255 255 255 / 75%);
+    border-radius: 50%;
+    background: rgb(0 0 0 / 60%);
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 3.75rem;
+    text-align: center;
+}
+
+.videoThumbnail > .sapMFlexItem:has(.videoDuration) {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.625rem;
+}
+
+.videoDuration.sapMText {
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.25rem;
+    background: rgb(0 0 0 / 72%);
+    color: #fff;
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.videoCardContent {
+    padding: 0.9rem 1rem;
+}
+
+.videoCardTitle.sapMTitle {
+    margin-bottom: 0.35rem;
+    color: #132038;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.videoCardFooter {
+    gap: 0.5rem;
+}
+
+.videoLanguage.sapMText {
+    padding: 0.45rem 0.6rem;
+    border-radius: 0.3rem;
+    background: #e8f1fb;
+    color: #0866d9;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.videoCardActions {
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.videoCardActions .sapMBtnInner {
+    padding: 0 0.75rem;
+}
+
+.videoDeleteButton .sapMBtnInner {
+    border: 1px solid #ec3434;
+    background: #fff;
+    color: #d62222;
+}
+
+.videoDeleteButton .sapMBtnIcon {
+    color: #d62222;
+}
+
+.videoDeleteButton:hover .sapMBtnInner {
+    border-color: #c81e1e;
+    background: #fff0f0;
+}
+
+.videosEmptyState {
+    gap: 0.75rem;
+    padding: 4rem 1rem;
+    border: 1px dashed #cbd9e8;
+    border-radius: 0.5rem;
+    background: #fff;
+    text-align: center;
+}
+
+.videosEmptyState .sapUiIcon {
+    margin-bottom: 0.5rem;
+    color: #75849c;
+    font-size: 2rem;
+}
+
+@media (max-width: 1350px) {
+    .videoGrid.sapMFlexBox {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1050px) {
+    .videosPage {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .videoGrid.sapMFlexBox {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .videosPage {
+        padding: 1.25rem 1rem 2rem;
+    }
+
+    .videosTitle.sapMTitle {
+        font-size: 2rem;
+    }
+
+    .uploadButton .sapMBtnInner {
+        min-width: auto;
+    }
+}

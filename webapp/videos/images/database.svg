@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+    <rect width="800" height="450" fill="#1e2c3b"/>
+    <rect y="50" width="175" height="400" fill="#293b4d"/>
+    <rect x="175" y="100" width="625" height="350" fill="#f0f4f7"/>
+    <rect x="175" y="100" width="625" height="48" fill="#bccbd8"/>
+    <rect y="102" width="175" height="45" fill="#0874ee"/>
+    <g fill="#e9f1f8" font-family="sans-serif" font-size="18">
+        <text x="22" y="81">Tabellen</text>
+        <text x="22" y="131">kunden</text>
+        <text x="22" y="178">videos</text>
+        <text x="22" y="222">themen</text>
+    </g>
+    <text x="199" y="79" font-family="monospace" font-size="23" fill="#70ceff">SELECT * FROM kunden;</text>
+    <g fill="#26384d" font-family="sans-serif" font-size="19">
+        <text x="200" y="132">id</text><text x="290" y="132">name</text><text x="515" y="132">sprache</text>
+        <text x="200" y="186">1</text><text x="290" y="186">Anna Müller</text><text x="515" y="186">Deutsch</text>
+        <text x="200" y="242">2</text><text x="290" y="242">Thomas Berger</text><text x="515" y="242">Englisch</text>
+        <text x="200" y="298">3</text><text x="290" y="298">Julia Wagner</text><text x="515" y="298">Deutsch</text>
+        <text x="200" y="354">4</text><text x="290" y="354">Markus Schmidt</text><text x="515" y="354">Deutsch</text>
+        <text x="200" y="410">5</text><text x="290" y="410">Laura Fischer</text><text x="515" y="410">Englisch</text>
+    </g>
+    <path d="M175 205H800M175 261H800M175 317H800M175 373H800M266 100V450M490 100V450M695 100V450" fill="none" stroke="#c9d4dd"/>
+</svg>

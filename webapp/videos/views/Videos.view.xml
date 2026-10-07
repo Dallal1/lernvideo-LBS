@@ -1,0 +1,178 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="lbs.videomanager.videos.controllers.Videos"
+    displayBlock="true">
+    <VBox class="videosPage">
+        <HBox
+            justifyContent="SpaceBetween"
+            alignItems="Start"
+            wrap="Wrap"
+            class="videosHeading">
+            <VBox>
+                <Title
+                    text="Videos"
+                    level="H1"
+                    class="videosTitle"/>
+
+                <Text
+                    text="Schulungsvideos"
+                    class="videosSubtitle"/>
+            </VBox>
+
+            <Button
+                text="Hochladen"
+                icon="sap-icon://upload"
+                type="Emphasized"
+                press=".onUpload"
+                class="uploadButton"/>
+        </HBox>
+
+        <HBox
+            wrap="Wrap"
+            alignItems="Center"
+            class="videoFilters">
+            <SearchField
+                id="videoSearch"
+                width="100%"
+                placeholder="Videos suchen…"
+                tooltip="Videos suchen…"
+                value="{videos>/query}"
+                liveChange=".onSearch"
+                search=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="2"
+                        baseSize="20rem"/>
+                </layoutData>
+            </SearchField>
+
+            <Select
+                id="topicFilter"
+                width="100%"
+                tooltip="Thema filtern"
+                selectedKey="{videos>/topic}"
+                items="{videos>/topics}"
+                change=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="1"
+                        baseSize="12rem"/>
+                </layoutData>
+
+                <core:Item
+                    key="{videos>key}"
+                    text="{videos>text}"/>
+            </Select>
+
+            <Select
+                id="languageFilter"
+                width="100%"
+                tooltip="Sprache filtern"
+                selectedKey="{videos>/language}"
+                change=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="1"
+                        baseSize="12rem"/>
+                </layoutData>
+
+                <core:Item
+                    key=""
+                    text="Alle Sprachen"/>
+
+                <core:Item
+                    key="DE"
+                    text="Deutsch"/>
+
+                <core:Item
+                    key="EN"
+                    text="Englisch"/>
+            </Select>
+        </HBox>
+
+        <Text
+            text="Beispieldaten · Alle Videos und Aktionen sind nur zur Demonstration."
+            class="videoDemoNote"/>
+
+        <FlexBox
+            id="videoGrid"
+            renderType="Div"
+            items="{path: 'videos>/items', templateShareable: false}"
+            class="videoGrid">
+            <VBox class="videoCard">
+                <VBox class="videoThumbnail">
+                    <Image
+                        src="{videos>thumbnail}"
+                        decorative="true"
+                        width="100%"
+                        densityAware="false"
+                        class="videoImage"/>
+
+                    <core:Icon
+                        src="sap-icon://media-play"
+                        decorative="true"
+                        class="videoPlayIcon"/>
+
+                    <Text
+                        text="{videos>duration}"
+                        tooltip="Dauer des Beispielvideos"
+                        class="videoDuration"/>
+                </VBox>
+
+                <VBox class="videoCardContent">
+                    <Title
+                        text="{videos>title}"
+                        level="H2"
+                        wrapping="true"
+                        class="videoCardTitle"/>
+
+                    <HBox
+                        alignItems="Center"
+                        wrap="Wrap"
+                        class="videoCardFooter">
+                        <Text
+                            text="{videos>language}"
+                            tooltip="{= ${videos>language} === 'DE' ? 'Deutsch' : 'Englisch' }"
+                            class="videoLanguage"/>
+
+                        <HBox class="videoCardActions">
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+
+                            <Button
+                                text="Löschen"
+                                icon="sap-icon://delete"
+                                tooltip="{= 'Löschen: ' + ${videos>title} + ' (Demo)' }"
+                                press=".onDelete"
+                                class="videoDeleteButton"/>
+
+                            <Button
+                                text="Ansehen"
+                                type="Emphasized"
+                                tooltip="{= 'Ansehen: ' + ${videos>title} + ' (Demo)' }"
+                                press=".onWatch"/>
+                        </HBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </FlexBox>
+
+        <VBox
+            visible="{= ${videos>/visibleCount} === 0 }"
+            alignItems="Center"
+            class="videosEmptyState">
+            <core:Icon
+                src="sap-icon://search"
+                decorative="true"/>
+
+            <Title
+                text="Keine Videos gefunden"
+                level="H2"/>
+
+            <Text text="Ändere den Suchbegriff oder die Filter."/>
+        </VBox>
+    </VBox>
+</mvc:View>
