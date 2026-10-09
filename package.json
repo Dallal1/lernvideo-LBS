@@ -4,7 +4,7 @@
   "private": true,
   "description": "OpenUI5-Startseite für das Schulprojekt VideoManager",
   "scripts": {
-    "start": "ui5 serve --port 8080",
+    "start": "ui5 serve --port 8081",
     "typecheck": "tsc --noEmit",
     "build": "ui5 build --all"
   },
