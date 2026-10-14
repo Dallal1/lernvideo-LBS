@@ -5,8 +5,9 @@
   "description": "OpenUI5-Startseite für das Schulprojekt VideoManager",
   "scripts": {
     "start": "ui5 serve --port 8081",
+    "backend": "dotnet run --project backend/Lernvideo.Api.vbproj",
     "typecheck": "tsc --noEmit",
-    "build": "ui5 build --all"
+    "build": "ui5 build --all --include-task generateVersionInfo"
   },
   "engines": {
     "node": ">=22"

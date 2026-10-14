@@ -3,3 +3,8 @@ dist/
 .tools/
 .ui5/
 *.tsbuildinfo
+
+**/bin/
+**/obj/
+backend/uploads/
+artifacts/

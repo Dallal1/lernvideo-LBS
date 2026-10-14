@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:video="lbs.videomanager.videos.controls">
+    <Dialog
+        id="playbackDialog"
+        title="{videos>/selected/title}"
+        contentWidth="60rem"
+        stretchOnPhone="true"
+        afterClose=".onPlaybackClosed">
+        <VBox class="sapUiSmallMargin">
+            <video:Player
+                id="player"
+                source="{videos>/selected/url}"
+                poster="{videos>/selected/thumbnail}"
+                playbackError=".onPlaybackError"/>
+
+            <MessageStrip
+                text="{videos>/playbackError}"
+                type="Error"
+                showIcon="true"
+                visible="{= !!${videos>/playbackError} }"/>
+        </VBox>
+
+        <endButton>
+            <Button
+                text="Schließen"
+                press=".onClosePlayback"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

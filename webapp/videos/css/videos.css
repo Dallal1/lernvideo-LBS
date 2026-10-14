@@ -217,3 +217,30 @@
         min-width: auto;
     }
 }
+
+.videoLibraryStatus {
+    margin: 0.5rem 0 1rem;
+    color: #65758b;
+}
+
+.videoMetadata.sapMText {
+    margin-bottom: 0.4rem;
+    color: #65758b;
+    font-size: 0.875rem;
+}
+
+.uploadForm {
+    gap: 0.5rem;
+}
+
+.uploadForm .sapMLabel {
+    margin-top: 0.5rem;
+}
+
+.actualVideoPlayer {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    background: #101820;
+    border-radius: 0.5rem;
+}

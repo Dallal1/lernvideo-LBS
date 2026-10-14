@@ -1,0 +1,114 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <Dialog
+        id="uploadDialog"
+        title="Video hochladen"
+        contentWidth="32rem"
+        stretchOnPhone="true">
+        <VBox class="sapUiMediumMargin uploadForm">
+            <Text text="MP4 oder WebM, maximal 256 MB. Die Vorschau wird aus deinem Video erstellt."/>
+
+            <Label
+                text="Videodatei"
+                labelFor="videoFile"
+                required="true"/>
+
+            <u:FileUploader
+                id="videoFile"
+                width="100%"
+                buttonText="Datei auswählen"
+                placeholder="Video auswählen…"
+                fileType="mp4,webm"
+                maximumFileSize="256"
+                sameFilenameAllowed="true"
+                enabled="{= !${videos>/uploading} }"
+                change=".onFileChange"
+                typeMissmatch=".onInvalidFile"
+                fileSizeExceed=".onInvalidFile"/>
+
+            <Text
+                text="Video wird geprüft und Vorschau erstellt…"
+                visible="{videos>/preparing}"/>
+
+            <Label
+                text="Titel"
+                labelFor="uploadTitle"
+                required="true"/>
+
+            <Input
+                id="uploadTitle"
+                value="{videos>/form/title}"
+                maxLength="120"
+                enabled="{= !${videos>/uploading} }"/>
+
+            <Label
+                text="Thema"
+                labelFor="uploadTopic"
+                required="true"/>
+
+            <Input
+                id="uploadTopic"
+                value="{videos>/form/topic}"
+                maxLength="60"
+                placeholder="Zum Beispiel Programmierung"
+                enabled="{= !${videos>/uploading} }"/>
+
+            <Label
+                text="Sprache"
+                labelFor="uploadLanguage"/>
+
+            <Select
+                id="uploadLanguage"
+                width="100%"
+                selectedKey="{videos>/form/language}"
+                enabled="{= !${videos>/uploading} }">
+                <core:Item
+                    key="DE"
+                    text="Deutsch"/>
+
+                <core:Item
+                    key="EN"
+                    text="Englisch"/>
+            </Select>
+
+            <Label
+                text="Erscheinungsjahr"
+                labelFor="uploadYear"
+                required="true"/>
+
+            <Input
+                id="uploadYear"
+                type="Number"
+                value="{videos>/form/year}"
+                enabled="{= !${videos>/uploading} }"/>
+
+            <ProgressIndicator
+                percentValue="{videos>/progress}"
+                displayValue="{= ${videos>/progress} + ' % – wird gespeichert…' }"
+                visible="{videos>/uploading}"/>
+
+            <MessageStrip
+                text="{videos>/uploadError}"
+                type="Error"
+                showIcon="true"
+                visible="{= !!${videos>/uploadError} }"/>
+        </VBox>
+
+        <beginButton>
+            <Button
+                text="Speichern"
+                type="Emphasized"
+                enabled="{= !${videos>/uploading} &amp;&amp; !${videos>/preparing} }"
+                press=".onSaveUpload"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Abbrechen"
+                enabled="{= !${videos>/uploading} }"
+                press=".onCancelUpload"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

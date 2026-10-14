@@ -92,12 +92,30 @@
             </Select>
         </HBox>
 
-        <Text
-            text="Beispieldaten · Alle Videos und Aktionen sind nur zur Demonstration."
-            class="videoDemoNote"/>
+        <HBox
+            alignItems="Center"
+            justifyContent="SpaceBetween"
+            class="videoLibraryStatus">
+            <Text text="{= ${videos>/visibleCount} + ' Videos' }"/>
+
+            <Button
+                text="Neu laden"
+                icon="sap-icon://refresh"
+                enabled="{= !${videos>/busy} }"
+                press=".onReload"/>
+        </HBox>
+
+        <MessageStrip
+            text="{videos>/error}"
+            type="Error"
+            showIcon="true"
+            visible="{= !!${videos>/error} }"
+            class="sapUiSmallMarginBottom"/>
 
         <FlexBox
             id="videoGrid"
+            busy="{videos>/busy}"
+            busyIndicatorDelay="0"
             renderType="Div"
             items="{path: 'videos>/items', templateShareable: false}"
             class="videoGrid">
@@ -117,7 +135,7 @@
 
                     <Text
                         text="{videos>duration}"
-                        tooltip="Dauer des Beispielvideos"
+                        tooltip="Videodauer"
                         class="videoDuration"/>
                 </VBox>
 
@@ -127,6 +145,10 @@
                         level="H2"
                         wrapping="true"
                         class="videoCardTitle"/>
+
+                    <Text
+                        text="{= ${videos>topic} + ' · ' + ${videos>year} }"
+                        class="videoMetadata"/>
 
                     <HBox
                         alignItems="Center"
@@ -145,14 +167,14 @@
                             <Button
                                 text="Löschen"
                                 icon="sap-icon://delete"
-                                tooltip="{= 'Löschen: ' + ${videos>title} + ' (Demo)' }"
+                                tooltip="{= 'Löschen: ' + ${videos>title} }"
                                 press=".onDelete"
                                 class="videoDeleteButton"/>
 
                             <Button
                                 text="Ansehen"
                                 type="Emphasized"
-                                tooltip="{= 'Ansehen: ' + ${videos>title} + ' (Demo)' }"
+                                tooltip="{= 'Ansehen: ' + ${videos>title} }"
                                 press=".onWatch"/>
                         </HBox>
                     </HBox>
@@ -161,7 +183,7 @@
         </FlexBox>
 
         <VBox
-            visible="{= ${videos>/visibleCount} === 0 }"
+            visible="{= ${videos>/visibleCount} === 0 &amp;&amp; !${videos>/busy} &amp;&amp; !${videos>/error} }"
             alignItems="Center"
             class="videosEmptyState">
             <core:Icon
@@ -172,7 +194,7 @@
                 text="Keine Videos gefunden"
                 level="H2"/>
 
-            <Text text="Ändere den Suchbegriff oder die Filter."/>
+            <Text text="Lade dein erstes Video hoch oder ändere die Filter."/>
         </VBox>
     </VBox>
 </mvc:View>
