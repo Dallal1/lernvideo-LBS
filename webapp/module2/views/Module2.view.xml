@@ -1,0 +1,211 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="lbs.videomanager.module2.controllers.Module2"
+    displayBlock="true">
+    <VBox class="videosPage module2Page">
+        <HBox
+            justifyContent="SpaceBetween"
+            alignItems="Start"
+            wrap="Wrap"
+            class="videosHeading">
+            <VBox>
+                <Title
+                    text="Videos"
+                    level="H1"
+                    class="videosTitle"/>
+
+                <Text
+                    text="IT und Programmierung"
+                    class="videosSubtitle"/>
+            </VBox>
+
+        </HBox>
+
+        <HBox
+            wrap="Wrap"
+            alignItems="Center"
+            class="videoFilters">
+            <SearchField
+                id="videoSearch"
+                width="100%"
+                placeholder="Videos suchen…"
+                tooltip="Videos suchen…"
+                value="{catalog>/query}"
+                liveChange=".onSearch"
+                search=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="2"
+                        baseSize="20rem"/>
+                </layoutData>
+            </SearchField>
+
+            <Select
+                id="topicFilter"
+                width="100%"
+                tooltip="Thema filtern"
+                selectedKey="{catalog>/topic}"
+                items="{catalog>/topics}"
+                change=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="1"
+                        baseSize="12rem"/>
+                </layoutData>
+
+                <core:Item
+                    key="{catalog>key}"
+                    text="{catalog>text}"/>
+            </Select>
+
+            <Select
+                id="languageFilter"
+                width="100%"
+                tooltip="Sprache filtern"
+                selectedKey="{catalog>/language}"
+                change=".onFilter">
+                <layoutData>
+                    <FlexItemData
+                        growFactor="1"
+                        baseSize="12rem"/>
+                </layoutData>
+
+                <core:Item
+                    key=""
+                    text="Alle Sprachen"/>
+
+                <core:Item
+                    key="DE"
+                    text="Deutsch"/>
+
+                <core:Item
+                    key="EN"
+                    text="Englisch"/>
+            </Select>
+        </HBox>
+
+        <HBox
+            alignItems="Center"
+            justifyContent="SpaceBetween"
+            class="videoLibraryStatus">
+            <Text text="{= ${catalog>/visibleCount} + ' Videos' }"/>
+
+        </HBox>
+
+        <MessageStrip
+            text="{catalog>/error}"
+            type="Error"
+            showIcon="true"
+            visible="{= !!${catalog>/error} }"
+            class="sapUiSmallMarginBottom"/>
+
+        <FlexBox
+            id="videoGrid"
+            busy="{catalog>/busy}"
+            busyIndicatorDelay="0"
+            renderType="Div"
+            items="{path: 'catalog>/items', templateShareable: false}"
+            class="videoGrid">
+            <VBox class="videoCard">
+                <VBox class="videoThumbnail">
+                    <Image
+                        src="{catalog>thumbnail}"
+                        decorative="true"
+                        width="100%"
+                        densityAware="false"
+                        class="videoImage"/>
+
+                </VBox>
+
+                <VBox class="videoCardContent">
+                    <Title
+                        text="{catalog>title}"
+                        level="H2"
+                        wrapping="true"
+                        class="videoCardTitle"/>
+
+                    <Text
+                        text="{= ${catalog>topic} + ' · ' + ${catalog>year} }"
+                        class="videoMetadata"/>
+
+                    <Text
+                        text="{catalog>description}"
+                        class="module2Description"/>
+
+                    <HBox
+                        alignItems="Center"
+                        wrap="Wrap"
+                        class="videoCardFooter">
+                        <Text
+                            text="{catalog>language}"
+                            tooltip="{= ${catalog>language} === 'DE' ? 'Deutsch' : 'Englisch' }"
+                            class="videoLanguage"/>
+
+                        <HBox class="videoCardActions">
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+
+                            <Button
+                                text="Ansehen"
+                                type="Emphasized"
+                                tooltip="{= 'Ansehen: ' + ${catalog>title} }"
+                                press=".onWatch"/>
+                        </HBox>
+                    </HBox>
+                    <Link
+                        text="Originalvideo ↗"
+                        href="{catalog>videoUrl}"
+                        target="_blank"
+                        class="sapUiTinyMarginTop"/>
+
+                </VBox>
+            </VBox>
+        </FlexBox>
+
+        <Panel
+            headerText="Quellen und Lizenzen"
+            expandable="true"
+            expanded="false"
+            class="sapUiSmallMarginTop">
+            <VBox items="{path: 'catalog>/credits', templateShareable: false}">
+                <VBox class="sapUiSmallMarginBottom">
+                    <Text
+                        text="{catalog>title}"
+                        class="sapUiTinyMarginBottom"/>
+
+                    <HBox
+                        wrap="Wrap"
+                        class="module2Credits">
+                        <Link
+                            text="{catalog>creator}"
+                            href="{catalog>sourceUrl}"
+                            target="_blank"/>
+
+                        <Link
+                            text="{catalog>license}"
+                            href="{catalog>licenseUrl}"
+                            target="_blank"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </Panel>
+
+        <VBox
+            visible="{= ${catalog>/visibleCount} === 0 &amp;&amp; !${catalog>/busy} &amp;&amp; !${catalog>/error} }"
+            alignItems="Center"
+            class="videosEmptyState">
+            <core:Icon
+                src="sap-icon://search"
+                decorative="true"/>
+
+            <Title
+                text="Keine Videos gefunden"
+                level="H2"/>
+
+            <Text text="Ändere den Suchbegriff oder die Filter."/>
+        </VBox>
+    </VBox>
+</mvc:View>

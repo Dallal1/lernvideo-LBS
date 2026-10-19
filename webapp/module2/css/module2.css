@@ -1,0 +1,12 @@
+.module2Page .module2Description {
+    min-height: 4.5rem;
+    margin-bottom: 0.75rem;
+    color: #546783;
+    line-height: 1.5;
+}
+
+.module2Page .module2Credits {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+}

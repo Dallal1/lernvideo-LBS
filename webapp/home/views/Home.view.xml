@@ -13,7 +13,9 @@
         <HBox
             wrap="Wrap"
             class="homeCards">
-            <VBox class="homeCard">
+            <VBox
+                visible="false"
+                class="homeCard">
                 <VBox
                     alignItems="Center"
                     justifyContent="Center"
@@ -35,6 +37,32 @@
                 <Button
                     text="Videos ansehen"
                     press=".onOpenVideos"
+                    type="Emphasized"
+                    class="cardPlaceholder"/>
+            </VBox>
+
+            <VBox class="homeCard">
+                <VBox
+                    alignItems="Center"
+                    justifyContent="Center"
+                    class="cardIllustration">
+                    <core:Icon
+                        src="sap-icon://video"
+                        decorative="true"/>
+                </VBox>
+
+                <Title
+                    text="Videos"
+                    level="H2"
+                    class="cardTitle"/>
+
+                <Text
+                    text="Entdecke ausgewählte Lernvideos zu IT und Programmierung."
+                    class="cardDescription"/>
+
+                <Button
+                    text="Videos ansehen"
+                    press=".onOpenModule2"
                     type="Emphasized"
                     class="cardPlaceholder"/>
             </VBox>

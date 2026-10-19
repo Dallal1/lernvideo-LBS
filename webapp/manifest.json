@@ -35,7 +35,8 @@
     "resources": {
       "css": [
         { "uri": "common/css/style.css" },
-        { "uri": "videos/css/videos.css" }
+        { "uri": "videos/css/videos.css" },
+        { "uri": "module2/css/module2.css" }
       ]
     },
     "routing": {
@@ -50,7 +51,8 @@
       },
       "routes": [
         { "pattern": "", "name": "home", "target": "home" },
-        { "pattern": "videos", "name": "videos", "target": "videos" }
+        { "pattern": "videos", "name": "videos", "target": "videos" },
+        { "pattern": "module2", "name": "module2", "target": "module2" }
       ],
       "targets": {
         "home": {
@@ -60,6 +62,10 @@
         "videos": {
           "id": "videos",
           "name": "lbs.videomanager.videos.views.Videos"
+        },
+        "module2": {
+          "id": "module2",
+          "name": "lbs.videomanager.module2.views.Module2"
         }
       }
     }
