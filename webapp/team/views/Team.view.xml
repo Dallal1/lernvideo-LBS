@@ -1,0 +1,43 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:team="lbs.videomanager.team.controls"
+    controllerName="lbs.videomanager.team.controllers.Team"
+    displayBlock="true">
+    <VBox class="teamPage">
+        <Title
+            text="Team"
+            level="H1"
+            class="teamTitle"/>
+
+        <Text
+            text="Die Menschen hinter VideoManager"
+            class="teamSubtitle"/>
+
+        <Text
+            text="Entdecke unsere Geschichte: Bewege die Maus über ein Foto oder tippe darauf."
+            class="teamHint"/>
+
+        <FlexBox
+            renderType="Div"
+            items="{path: 'team>/members', templateShareable: false}"
+            class="teamGrid">
+            <VBox class="teamCard">
+                <team:Portrait
+                    photo="{team>photo}"
+                    person="{= ${team>name} + ' – ' + ${team>position} }"
+                    description="{team>description}"/>
+
+                <Title
+                    text="{team>position}"
+                    level="H2"
+                    wrapping="true"
+                    class="teamPosition"/>
+            </VBox>
+        </FlexBox>
+
+        <Text
+            text="Testansicht: Dasselbe Foto für drei Positionen. Die Beschreibungen sind Beispieltexte."
+            class="teamTestNote"/>
+    </VBox>
+</mvc:View>

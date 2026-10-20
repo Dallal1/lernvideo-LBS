@@ -26,6 +26,10 @@ export default class App extends Controller {
         this.navigateTo("module2");
     }
 
+    public onTeam(): void {
+        this.navigateTo("team");
+    }
+
     private navigateTo(route: string): void {
         this.selectNavigation(route);
         UIComponent.getRouterFor(this)!.navTo(route);
@@ -43,6 +47,7 @@ export default class App extends Controller {
         (this.byId("homeNavigation") as ToggleButton).setPressed(route === "home");
         (this.byId("videosNavigation") as ToggleButton).setPressed(route === "videos");
         (this.byId("module2Navigation") as ToggleButton).setPressed(route === "module2");
+        (this.byId("teamNavigation") as ToggleButton).setPressed(route === "team");
     }
 
     public onToggleMenu(): void {

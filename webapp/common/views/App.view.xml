@@ -77,12 +77,12 @@
                     press=".onModule2"
                     class="navigationButton"/>
 
-                <Button
+                <ToggleButton
+                    id="teamNavigation"
                     text="Team"
                     icon="sap-icon://group"
                     type="Transparent"
-                    enabled="false"
-                    tooltip="Team – noch nicht verfügbar"
+                    press=".onTeam"
                     class="navigationButton"/>
             </VBox>
 

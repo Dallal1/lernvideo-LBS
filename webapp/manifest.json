@@ -36,7 +36,8 @@
       "css": [
         { "uri": "common/css/style.css" },
         { "uri": "videos/css/videos.css" },
-        { "uri": "module2/css/module2.css" }
+        { "uri": "module2/css/module2.css" },
+        { "uri": "team/css/team.css" }
       ]
     },
     "routing": {
@@ -52,7 +53,8 @@
       "routes": [
         { "pattern": "", "name": "home", "target": "home" },
         { "pattern": "videos", "name": "videos", "target": "videos" },
-        { "pattern": "module2", "name": "module2", "target": "module2" }
+        { "pattern": "module2", "name": "module2", "target": "module2" },
+        { "pattern": "team", "name": "team", "target": "team" }
       ],
       "targets": {
         "home": {
@@ -66,6 +68,10 @@
         "module2": {
           "id": "module2",
           "name": "lbs.videomanager.module2.views.Module2"
+        },
+        "team": {
+          "id": "team",
+          "name": "lbs.videomanager.team.views.Team"
         }
       }
     }

@@ -9,6 +9,10 @@ export default class Home extends Controller {
         UIComponent.getRouterFor(this)!.navTo("module2");
     }
 
+    public onOpenTeam(): void {
+        UIComponent.getRouterFor(this)!.navTo("team");
+    }
+
     public onOpenVideos(): void {
         UIComponent.getRouterFor(this)!.navTo("videos");
     }

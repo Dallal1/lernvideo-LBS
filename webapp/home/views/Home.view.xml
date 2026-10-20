@@ -83,12 +83,12 @@
                     class="cardTitle"/>
 
                 <Text
-                    text="Hier stellen wir später unser Team vor."
+                    text="Lerne die Menschen hinter unserem Projekt kennen."
                     class="cardDescription"/>
 
                 <Button
                     text="Über uns"
-                    enabled="false"
+                    press=".onOpenTeam"
                     type="Emphasized"
                     class="cardPlaceholder"/>
             </VBox>
